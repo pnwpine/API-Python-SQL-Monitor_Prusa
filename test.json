@@ -1,0 +1,23 @@
+{'job': {'averagePrintTime': None, 'estimatedPrintTime': 5470.813649026938, 'filament': {'tool0': {'length': 9876.66082000008, 'volume': 23.756153259865766}}, 
+        
+    'file': {'date': 1563492091, 'display': 'NEW_FILE.gcode', 'name': 'NEW_FILE.gcode', 'origin': 'local', 'path': 'NEW_FILE.gcode', 'size': 3612229},'lastPrintTime': None, 'user': 'jonathana'}, 
+
+    'progress': {'completion': 20.763218500266735, 'filepos': 750015, 'printTime': 2343, 'printTimeLeft': 5567, 'printTimeLeftOrigin': 'mixed-analysis'},
+    
+    'state': 'Printing'
+}
+
+{'sd': 
+    {'ready': False}, 
+    'state': {'flags': 
+            {'cancelling': False, 'closedOrError': False, 'error': False, 'finishing': False, 'operational': True, 'paused': False, 'pausing': False, 'printing': True, 'ready': False, 'resuming': False, 'sdReady': False},
+
+             'text': 'Printing'},
+
+             'temperature': 
+                        {'bed': 
+                                {'actual': 60.0, 'offset': 0, 'target': 60.0}, 
+                        'tool0': 
+                                {'actual': 210.0, 'offset': 0, 'target': 210.0}
+    }
+}
