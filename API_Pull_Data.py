@@ -5,16 +5,11 @@ from datetime import datetime , timezone
 import time
 
 #TODO: Bind to a different port other than 80. It makes things all freaky if using default portr 80 (http traffic).
-
-#TODO: Add graphana to SQL Database: https://grafana.com/docs/features/datasources/mssql/
-
 #TODO: ADD GUID column to link jobs together
-
 
 """
 Created an ETL to get JSON data from printer over to SQL so we can do analythics
 LINK: https://artemiorimando.com/2017/03/25/extract-transform-and-load-yelp-data-using-python-and-microsoft-sql-server/
-
 
 This functions job is to pull date from the API, transform it into a respected datatype then load it into a SQL database.
 """
@@ -63,17 +58,8 @@ def job():
 
 def API_Caller():
 
-    #TODO: Make sure columns ruely represent what data is being pulled
-
-    #TODO: Maybe transform the data even more to repesent what type it is... like WTF is 720.4516325984414 for job time
-
-
     response = requests.get('http://'+connection.Domain+CALLS[0], headers=headers)
     response = response.json()
-
-    # ts = time.time()
-    # RECORDINGDATE = datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
-
 
     RECORDINGDATE = datetime.now(timezone.utc)
 
@@ -104,7 +90,6 @@ def API_Caller():
 
 
     # Job Details TRANSFORM
-
     #TODO: Optimize for better data types
 
     progressCompletion = float(progressCompletion)
@@ -171,6 +156,7 @@ def API_Caller():
     cursor.commit()
     return
 
+
 if __name__ == "__main__":
 
     headers = {
@@ -185,24 +171,28 @@ if __name__ == "__main__":
     jobjob = 0
     startLogging  = 0
     while Keeprunning == 1:
-        start = requests.get('http://'+connection.Domain+CALLS[1], headers=headers) #checks to see if 3DP is running
-        json = start.json()
-        #TODO: Change logic to now have the waiting in own section
-        print ("waiting...")
-        time.sleep(.500)
-        if start.status_code == 200:
-            if (jobjob == 0 and json['state']['flags']['printing'] == 1):
-                print("Job Found - Starting to log...")
-                job()
-                jobjob = 1
-                startLogging = 1
+        try:
+            start = requests.get('http://'+connection.Domain+CALLS[1], headers=headers) #checks to see if 3DP is running
+            json = start.json()
+            print ("waiting...")
+            time.sleep(.500)
+            if start.status_code == 200:
+                 if (jobjob == 0 and json['state']['flags']['printing'] == 1):
+                    print("Job Found - Starting to log...")
+                    job()
+                    jobjob = 1
+                    startLogging = 1
 
             if (startLogging == 1):
                 print(start.status_code)
                 API_Caller()
                 time.sleep(1)
-        else:
-            print(start.status_code)
-            print("Error Connecting")
-            time.sleep(1)
-            pass 
+            else:
+                print(start.status_code)
+                print("Error Connecting")
+                time.sleep(1)
+                pass 
+        except:
+            print("Printer is off")
+            continue
+       
