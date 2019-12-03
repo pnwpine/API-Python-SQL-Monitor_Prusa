@@ -13,6 +13,6 @@ This is a simple ETL connector to your SQL server. Data is structured to be used
 ## Features to Come
 
 1. Mongo support
-2. Pythin package (files and modules included for easy install)
+2. Python package (files and modules included for easy install)
   - Goal is to have this project avalible for all people both technical and non-technical. Data is data and more of it can produce better resutls with your printer!
 
