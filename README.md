@@ -15,4 +15,5 @@ This is a simple ETL connector to your SQL server. Data is structured to be used
 1. Mongo support
 2. Python package (files and modules included for easy install)
   - Goal is to have this project avalible for all people both technical and non-technical. Data is data and more of it can produce better results with your printer!
+3. Use border detection ML from both the physical print and the 3D model to predict a faliure of the print before it happens. 
 
