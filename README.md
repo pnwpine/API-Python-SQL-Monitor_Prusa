@@ -2,7 +2,7 @@
 
 **Please feel free to message me with questions, comments and concerns. Im constantly trying to add more to this project and your feedback is greatly appreciated!**
 
-This is a simple ETL connector to your SQL server. Data is structured to be used for printer analytics as well as connect to a graphana metric dashboard for minimalistic data display. 
+This is a simple ETL connector from your Octopi 3D printer to your SQL server. Data is structured to be used for printer analytics as well as connect to a graphana metric dashboard for minimalistic data display. 
 
 ## Steps to logging data
 
