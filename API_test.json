@@ -1,6 +1,0 @@
-{'job': {'estimatedPrintTime': None, 'filament': {'length': None, 'volume': None
-        }, 'file': {'date': None, 'name': None, 'origin': None, 'path': None, 'size': None
-        }, 'lastPrintTime': None, 'user': None
-    }, 'progress': {'completion': None, 'filepos': None, 'printTime': None, 'printTimeLeft': None, 'printTimeOrigin': None
-    }, 'state': 'Operational'
-}
